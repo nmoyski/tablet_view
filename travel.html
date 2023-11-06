@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="dist/css/lightbox.css" rel="stylesheet"/>
+</head>
+<body onLoad="getYellowstoneDist(); getBarcelonaDist(); getBanffDist(); getNanjingDist();">
+    <a href = "#main" id = "skip">Skip to Main Content</a>
+    <nav>
+        <ul>
+            <li><a href = "index.html">Pets</a></li>
+            <li><a href = "recipes.html">Recipes</a></li>
+            <li><a href = "travel.html" class="currentpage">Travel</a></li>
+        </ul>
+    </nav>
+    <h1>Travel</h1>
+    <div class="animation">✈️</div>
+    <main id = "main">
+        <div>
+            <h2>Yellowstone</h2>
+            <img class="gif" src="images/yellowstone_cauldron.gif" width="400" alt="Bubbling cauldron.">
+            <img src="images/yellowstone_cauldron.jpg" width = "400" alt="Bubbling cauldron">
+            <h3>Geographical Location: North America</h3>
+            <p id="dist1"></p>
+            <script>
+                const y = document.getElementById("dist1");
+                function getYellowstoneDist() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else { 
+                        y.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+        
+                function showPosition(position) {
+                    lat1 =  44.427284 * Math.PI / 180;
+                    lon1 = -110.584389 * Math.PI / 180;
+                    lat2 = position.coords.latitude * Math.PI / 180;
+                    lon2 = position.coords.longitude * Math.PI / 180;
+                    let dlon = lon2 - lon1; 
+                    let dlat = lat2 - lat1;
+                    let a = Math.pow(Math.sin(dlat / 2), 2)
+                             + Math.cos(lat1) * Math.cos(lat2)
+                             * Math.pow(Math.sin(dlon / 2),2);      
+                    let c = 2 * Math.asin(Math.sqrt(a));
+                    let r = 6371;    
+                    y.innerHTML = (c * r) + " Kilometers away";
+                }
+            </script>
+            <p>Yellowstone is the first national park in the United States. It covers over 2.2 million acres, and provides an opportunity to see wildlife and explore geothermal areas.  In fact, Yellowstone contains about half the world's active geysers.</p>
+            <p>These unique opportunities also bring out a lot of bad decisions among the tourists.  Every year visitors injure themselves or the wildlife by getting close to the animals.  You  can see examples of people making bad decisions by visiting <a href ="https://www.facebook.com/groups/yellowstonenationalparkinvasionoftheidiots/">Yellowstone National Park: Invasion of the Idiots</a>, <a href="https://www.instagram.com/touronsofyellowstone/?hl=en">Tourons of Yellowstone</a>, or  <a href="https://cowboystatedaily.com/">Cowboy State Daily</a>.</p>
+            <h3>Photo Gallery</h3>
+            <div class="grid2-lboff">
+                <figure class="fig1">
+                    <img src="images/yellowstone_travertine.JPG" alt="A large mound of multi-colored travertine">
+                    <figcaption>Mammoth Hot Springs has a number of actively forming Travertine terraces.</figcaption>
+                </figure>
+                <figure class="fig2">
+                    <img src="images/yellowstone_sunset.jpg" alt="Sunset over mountains with some charred trees in the foreground">
+                    <figcaption>The drive to Lamar Valley requires some dangerous roads.  But the result is amazing sunset views.</figcaption>
+                </figure>
+                <figure class="fig3">
+                    <video controls>
+                        <source src="images/yellowstone_prism.MOV">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption>The multicolored layers get their hues from different species of bacteria living in the cooler water around the spring.</figcaption>
+                </figure>
+                <figure class="fig4">
+                    <video controls>
+                        <source src="images/yellowstone_buffalo.MOV">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption>The buffalo were so common along the roads in Yellowstone that our mantra became "If it ain't lickin the car, we aren't stopping."</figcaption>
+                </figure>
+                <figure class="fig5">
+                    <img src="images/yellowstone_sulphur_springs.JPG" alt="A large spring with clouds of sulfur smoke rising from it.">              
+                    <figcaption>If you can handle the odor, the Yellowstone Sulphur Springs is a great place to hike.</figcaption>
+                </figure>
+            </div>
+            <div class="grid2-lbon">
+                <a href="images/yellowstone_travertine.JPG" data-lightbox="gallery-a" class="fig1">
+                    <figure>
+                        <img src="images/yellowstone_travertine.JPG" alt="A large mound of multi-colored travertine">
+                        <figcaption>Mammoth Hot Springs has a number of actively forming Travertine terraces.</figcaption>
+                    </figure>
+                </a>
+                <a href="images/yellowstone_sunset.jpg" data-lightbox="gallery-a" class="fig2">
+                    <figure>
+                        <img src="images/yellowstone_sunset.jpg" alt="Sunset over mountains with some charred trees in the foreground">
+                        <figcaption>The drive to Lamar Valley requires some dangerous roads.  But the result is amazing sunset views.</figcaption>
+                    </figure>
+                </a>
+                <a href="images/yellowstone_prism.MOV" data-lightbox="gallery-a" class="fig3">
+                    <figure>
+                        <video controls>
+                            <source src="images/yellowstone_prism.MOV">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>The multicolored layers get their hues from different species of bacteria living in the cooler water around the spring.</figcaption>
+                    </figure>
+                </a>
+                <a href="images/yellowstone_buffalo.MOV" data-lightbox="gallery-a" class="fig4">
+                    <figure>
+                        <video controls>
+                            <source src="images/yellowstone_buffalo.MOV">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>The buffalo were so common along the roads in Yellowstone that our mantra became "If it ain't lickin the car, we aren't stopping."</figcaption>
+                    </figure>
+                </a>
+                <a href="images/yellowstone_sulphur_springs.JPG" data-lightbox="gallery-a" class="fig5">
+                    <figure>
+                        <img src="images/yellowstone_sulphur_springs.JPG" alt="A large spring with clouds of sulfur smoke rising from it.">             
+                        <figcaption>If you can handle the odor, the Yellowstone Sulphur Springs is a great place to hike.</figcaption>
+                    </figure>
+                </a>
+            </div>
+            
+            <!-- Colleen van Lent -->
+        </div>
+        <div>
+            <h2>Barcelona</h2>
+            <img class="gif" src="images/barcelona_gif.gif" alt="Gif of La Sagrada Familia" width="400">
+            <img src="images/barcelona_still.jpg" alt="Still of La Sagrada Familia" width="400">
+            <h3>Geographical Location: Europe</h3>
+            <p id="dist2"></p>
+            <script>
+                const z = document.getElementById("dist2");
+                function getBarcelonaDist() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition2);
+                    } else { 
+                        z.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+        
+                function showPosition2(position) {
+                    lat1 =  41.346176 * Math.PI / 180;
+                    lon1 = 2.168365 * Math.PI / 180;
+                    lat2 = position.coords.latitude * Math.PI / 180;
+                    lon2 = position.coords.longitude * Math.PI / 180;
+                    let dlon = lon2 - lon1; 
+                    let dlat = lat2 - lat1;
+                    let a = Math.pow(Math.sin(dlat / 2), 2)
+                             + Math.cos(lat1) * Math.cos(lat2)
+                             * Math.pow(Math.sin(dlon / 2),2);      
+                    let c = 2 * Math.asin(Math.sqrt(a));
+                    let r = 6371;    
+                    z.innerHTML = (c * r) + " Kilometers away";
+                }
+            </script>
+            <p>Barcelona is located on the northeastern coast of Spain and is the capital of Catalonia. Barcelona is home to 1.6 million people and contains multiple different historical landmarks and interesting architecture. </p>
+            <p>Barcelona is famous for its notable architects including Antoni Gaudí and Lluís Domènech i Montaner. These architects built La Sagrada Familia, Park Guell, and Palau de la Música Catalana which are among the most famous constructions in Barcelona. Both architects are famous for their Modernisme style buildings notable for their distinct colors and organic shapes.</p>
+            <h3>Photo Gallery</h3>
+            <div class="grid2-lboff">
+                <figure class="fig1">
+                    <img class = "thumbnail" src="images/barcelona_pg1.jpg" alt="A zoomed out image of the city" width="200">
+                    <figcaption>A view of Barcelona with La Sagrada Familia in the center</figcaption>
+                </figure>
+                <figure class="fig2">
+                    <img class = "thumbnail" src="images/barcelona_pg2.jpeg" alt="Park Güell" width="200">
+                    <figcaption>A view of some mosaic in Park Güell</figcaption>
+                </figure>    
+                <figure class="fig3">
+                    <img class = "thumbnail" src="images/barcelona_pg3.jpeg" alt="A shot of Barceloneta" width="200">
+                    <figcaption>Barceloneta beach</figcaption>
+                </figure>
+                <figure class="fig4">
+                    <img class = "thumbnail" src="images/barcelona_pg4.jpeg" alt="Pont del Bisbe" width="200">
+                    <figcaption>Pont del Bisbe in Barcelona’s Gothic Quarter</figcaption>
+                </figure>
+                <figure class="fig5">
+                    <img class = "thumbnail" src="images/barcelona_pg5.jpeg" alt="Arc de triomf" width="200">
+                    <figcaption>The Arc de triomf in Barcelona</figcaption>
+                </figure>   
+            </div>
+            <div class="grid2-lbon">
+                <a href="images/barcelona_pg1.jpg" data-lightbox="gallery-b" class="fig1">
+                    <figure>
+                        <img class = "thumbnail" src="images/barcelona_pg1.jpg" alt="A zoomed out image of the city" width="200">
+                        <figcaption>A view of Barcelona with La Sagrada Familia in the center</figcaption>
+                    </figure>
+                </a>
+                <a href="images/barcelona_pg2.jpeg" data-lightbox="gallery-b" class="fig2">
+                    <figure>
+                        <img class = "thumbnail" src="images/barcelona_pg2.jpeg" alt="Park Güell" width="200">
+                        <figcaption>A view of some mosaic in Park Güell</figcaption>
+                    </figure> 
+                </a>
+                <a href="images/barcelona_pg3.jpeg" data-lightbox="gallery-b" class="fig3">
+                    <figure>
+                        <img class = "thumbnail" src="images/barcelona_pg3.jpeg" alt="A shot of Barceloneta" width="200">
+                        <figcaption>Barceloneta beach</figcaption>
+                    </figure>
+                </a>
+                <a href="images/barcelona_pg4.jpeg" data-lightbox="gallery-b" class="fig4">
+                    <figure>
+                        <img class = "thumbnail" src="images/barcelona_pg4.jpeg" alt="Pont del Bisbe" width="200">
+                        <figcaption>Pont del Bisbe in Barcelona’s Gothic Quarter</figcaption>
+                    </figure>
+                </a>
+                <a href="images/barcelona_pg5.jpeg" data-lightbox="gallery-b" class="fig5">
+                    <figure>
+                        <img class = "thumbnail" src="images/barcelona_pg5.jpeg" alt="Arc de triomf" width="200">
+                        <figcaption>The Arc de triomf in Barcelona</figcaption>
+                    </figure> 
+                </a>
+            </div>
+            <!-- Nina Moyski --> 
+        </div>
+        <div>
+            <div>
+                <h2>Banff</h2>
+                <img class="gif" src="images/banff.gif" width = "400" alt = "GIF of a lake at Banff National Park">
+                <img src="images/banff_still.jpg" width = "400" alt = "Image of a lake at Banff National Park">
+                <h3>Geographical Location: North America</h3>
+                <p id="dist3"></p>
+            <script>
+                const f = document.getElementById("dist3");
+                function getBanffDist() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition3);
+                    } else { 
+                        f.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+        
+                function showPosition3(position) {
+                    lat1 =  51.496845 * Math.PI / 180;
+                    lon1 = -115.928055 * Math.PI / 180;
+                    lat2 = position.coords.latitude * Math.PI / 180;
+                    lon2 = position.coords.longitude * Math.PI / 180;
+                    let dlon = lon2 - lon1; 
+                    let dlat = lat2 - lat1;
+                    let a = Math.pow(Math.sin(dlat / 2), 2)
+                             + Math.cos(lat1) * Math.cos(lat2)
+                             * Math.pow(Math.sin(dlon / 2),2);      
+                    let c = 2 * Math.asin(Math.sqrt(a));
+                    let r = 6371;    
+                    f.innerHTML = (c * r) + " Kilometers away";
+                }
+            </script>
+                <p>Banff is Canada’s first national park. The park spans 2,564 square miles. Here you can see the Rocky Mountain peaks and beautiful turquoise glacial lakes.</p>
+                <p>In addition to the magnificent nature of Banff, there are many things to explore in the downtown area. Banff Avenue and Bear Street have many stores to enjoy shopping. You can also learn of the natural and cultural history by visiting many museums and historical sites.</p>
+                <h3>Photo Gallery</h3>
+                <div class="grid2-lboff">
+                    <figure class="fig1">
+                        <img class="thumbnail" src ="images/banff_lake_summer.jpg" width= "200" alt = "Lake at Banff in summer">
+                        <figcaption>Summer Banff</figcaption>
+                    </figure>
+                    <figure class="fig2">
+                        <img class = "thumbnail" src ="images/banff_town.jpg" width = "200" alt = "Banff downtown">
+                        <figcaption>Downtown area of Banff that is good for shopping</figcaption>
+                    </figure>
+                    <figure class="fig3">
+                        <img class = "thumbnail" src ="images/banff_winter.jpg" width = "200" alt = "Beautiful Banff in winter">
+                        <figcaption>Winter wonderland</figcaption>
+                    </figure>
+                    <figure class="fig4">
+                        <img class = "thumbnail" src ="images/moraine_lake_banff.jpg" width = "200" alt = "Moraine lake at Banff">
+                        <figcaption>Moraine Lake, Banff</figcaption>
+                    </figure>
+                        <figure class="fig5">
+                            <img class = "thumbnail" src ="images/canoeing_in_banff.jpg" width = "200" alt = "Canoeing in Banff">
+                            <figcaption>Woman canoeing in lake at Banff</figcaption>
+                        </figure>
+                </div>
+                <div class="grid2-lbon">
+                    <a href="images/banff_lake_summer.jpg" data-lightbox="gallery-c" class="fig1">
+                        <figure>
+                            <img class="thumbnail" src ="images/banff_lake_summer.jpg" width= "200" alt = "Lake at Banff in summer">
+                            <figcaption>Summer Banff</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/banff_town.jpg" data-lightbox="gallery-c" class="fig2">
+                        <figure>
+                            <img class = "thumbnail" src ="images/banff_town.jpg" width = "200" alt = "Banff downtown">
+                            <figcaption>Downtown area of Banff that is good for shopping</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/banff_winter.jpg" data-lightbox="gallery-c" class="fig3">
+                        <figure>
+                            <img class = "thumbnail" src ="images/banff_winter.jpg" width = "200" alt = "Beautiful Banff in winter">
+                            <figcaption>Winter wonderland</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/moraine_lake_banff.jpg" data-lightbox="gallery-c" class="fig4">
+                        <figure>
+                            <img class = "thumbnail" src ="images/moraine_lake_banff.jpg" width = "200" alt = "Moraine lake at Banff">
+                            <figcaption>Moraine Lake, Banff</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/canoeing_in_banff.jpg" data-lightbox="gallery-c" class="fig5">
+                        <figure>
+                            <img class = "thumbnail" src ="images/canoeing_in_banff.jpg" width = "200" alt = "Canoeing in Banff">
+                            <figcaption>Woman canoeing in lake at Banff</figcaption>
+                        </figure>
+                    </a>
+                </div>
+                <!-- Abby Lee -->
+            </div>
+        </div>
+        <div>
+            <h2>  Nanjing Fuzi-Qinhuai </h2>
+            <img class="gif" src="images/nanjing.gif" width = 400 alt = "qinhuai river gif at night"> 
+            <img src = "images/nanjing_still.JPG" width = 400 alt = "qinhuai river photo at night">
+            <h3>Geographical Location: Asia</h3>
+            <p id="dist4"></p>
+            <script>
+                const b = document.getElementById("dist4");
+                function getNanjingDist() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition4);
+                    } else { 
+                        b.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+        
+                function showPosition4(position) {
+                    lat1 =  32.049999 * Math.PI / 180;
+                    lon1 = 118.766670 * Math.PI / 180;
+                    lat2 = position.coords.latitude * Math.PI / 180;
+                    lon2 = position.coords.longitude * Math.PI / 180;
+                    let dlon = lon2 - lon1; 
+                    let dlat = lat2 - lat1;
+                    let a = Math.pow(Math.sin(dlat / 2), 2)
+                             + Math.cos(lat1) * Math.cos(lat2)
+                             * Math.pow(Math.sin(dlon / 2),2);      
+                    let c = 2 * Math.asin(Math.sqrt(a));
+                    let r = 6371;    
+                    b.innerHTML = (c * r) + " Kilometers away";
+                }
+            </script>
+            <p>Nanjing is a popular city full of Chinese history and old traditional southern kinds of agriculture. As a northern people from China, Nanjing was the first city that I traveled to the region south of the Yangtze River. Confucius Temple - Qinhuai River is the most famous place to show the beauty of Nanjing.</p>
+            <p>Confucius temple has many traditional temple agricultures inside and many small shops about traditional Nanjing specialties and popular restaurants. There are also many colorful traditional lanterns which made the night of qinhuai more gorgeous. People can also take the “Hua Fang” ( a special kind of ship) to travel around the river and the whole scenery.  </p>         
+            <h3>Photo Gallery</h3>
+            <div class="grid2-lboff">
+                <figure class="fig1"> 
+                    <img src = "images/nj_dragon.JPG"  width = 200 alt = "Two dragons playing with beads carved on the dragon wall of a traditional Chinese building"> 
+                    <figcaption> Taken in the evening on the other side of the Qinhuai River. </figcaption>
+                </figure>
+                <figure class="fig2"> 
+                    <img src = "images/nj_huafang.JPG"  width = 200 alt = "The Huafang ship of Qinhuai River for visitors"> 
+                    <figcaption> At About 7 pm at night when the lights and lanterns turn on.</figcaption>
+                </figure>
+                <figure class="fig3"> 
+                    <img src = "images/nj_lantern.JPG"  width = 200 alt = "Various of beautiful hand-made lanterns for blessing"> 
+                    <figcaption>  Inside the Jiangnan Examination Hall at night.</figcaption>
+                </figure>
+                <figure class="fig4">
+                    <img src = "images/nj_qhriver.JPG"  width = 200 alt = "The ancient building corridor on both sides of the Qinhuai River">
+                    <figcaption>  At night stand on the side of the corridor.</figcaption>
+                </figure>
+                <figure class="fig5"> 
+                    <img src = "images/nj_temple.JPG"  width = 200 alt = "The temple  people burn incense and pray for success in the exam"> 
+                    <figcaption> Upward view at night inside the Jiangnan Examination Hall. </figcaption>
+                </figure>
+            </div>
+            <div class="grid2-lbon">
+                <a href="images/nj_dragon.JPG" data-lightbox="gallery-d" class="fig1">
+                    <figure> 
+                        <img src = "images/nj_dragon.JPG"  width = 200 alt = "Two dragons playing with beads carved on the dragon wall of a traditional Chinese building"> 
+                        <figcaption> Taken in the evening on the other side of the Qinhuai River. </figcaption>
+                    </figure>
+                </a>
+                <a href="images/nj_huafang.JPG" data-lightbox="gallery-d" class="fig2">
+                    <figure> 
+                        <img src = "images/nj_huafang.JPG"  width = 200 alt = "The Huafang ship of Qinhuai River for visitors"> 
+                        <figcaption> At About 7 pm at night when the lights and lanterns turn on.</figcaption>
+                    </figure>
+                </a>
+                <a href="images/nj_lantern.JPG" data-lightbox="gallery-d" class="fig3">
+                    <figure> 
+                        <img src = "images/nj_lantern.JPG"  width = 200 alt = "Various of beautiful hand-made lanterns for blessing"> 
+                        <figcaption>  Inside the Jiangnan Examination Hall at night.</figcaption>
+                    </figure>
+                </a>
+                <a href="images/nj_qhriver.JPG" data-lightbox="gallery-d" class="fig4">
+                    <figure>
+                        <img src = "images/nj_qhriver.JPG"  width = 200 alt = "The ancient building corridor on both sides of the Qinhuai River">
+                        <figcaption>  At night stand on the side of the corridor.</figcaption>
+                    </figure>
+                </a>
+                <a href="images/nj_temple.JPG" data-lightbox="gallery-d" class="fig5">
+                    <figure> 
+                        <img src = "images/nj_temple.JPG"  width = 200 alt = "The temple  people burn incense and pray for success in the exam"> 
+                        <figcaption> Upward view at night inside the Jiangnan Examination Hall. </figcaption>
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </main>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="dist/js/lightbox-plus-jquery.js"></script>
+</body>
+</html>
